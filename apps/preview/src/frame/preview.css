@@ -1,0 +1,41 @@
+/* The page around the player in the preview frame. Super minimal: white page, one line on top. */
+:root {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+}
+
+.hop-page {
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding: 0;
+  background: #fff;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preview-player {
+  width: 100%;
+  max-width: var(--preview-player-width, 56rem);
+  margin: 0 auto;
+}
+
+/* The aspect ratio option overrides the skin's own; `auto` lets the media's intrinsic size decide. */
+.preview-player[style*="--preview-player-ratio"] .media-skin {
+  aspect-ratio: var(--preview-player-ratio);
+}
+
+/* Player elements only provide state; the skin inside them is the box that gets sized. */
+media-i18n,
+video-player,
+live-video-player,
+audio-player,
+live-audio-player {
+  display: contents;
+}
